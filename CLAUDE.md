@@ -49,7 +49,9 @@ Spec → Task → Impl(TDD) → QA ⇄ (필요 시 Codex, Antigravity 교차 피
 - 승인된 Spec만 근거로, 기능을 **작은 단위**(한 번의 Impl에서 끝낼 수 있는 크기)로 쪼갠다.
 - 산출물: `docs/tasks/TASK-XX-<이름>.md` (템플릿: `docs/templates/TASK_TEMPLATE.md`)
 - 각 Task에는 Spec 참조 섹션, 범위, 범위 밖, 먼저 작성할 테스트, 완료 조건, 중단 조건을 적는다.
-- Impl에게는 Spec 전체가 아니라 해당 Task 파일 경로와 필요한 Spec 섹션만 넘긴다.
+- 각 Task 파일에 **기능 범위**(이 Task에 해당하는 Spec 줄만 발췌)와 **연결 범위**(받아 쓰는 것과 내보내는 것의 계약)를 적는다.
+- Impl에게는 Spec 경로를 주지 않고 Task 파일 하나만 넘긴다. Impl과 QA는 Spec을 직접 열지 않는다.
+- Impl이 정보 부족으로 멈추면 오케스트레이터가 필요한 줄만 Task 파일 "추가 발췌"에 보충한다.
 
 ## 3. Impl 단계 (`impl-agent`) — TDD
 

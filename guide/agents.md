@@ -35,10 +35,12 @@ Claude Code의 서브에이전트는 다른 서브에이전트를 부를 수 없
 | 에이전트 | 도구 | 입력 | 출력 | 코드 수정 |
 |---|---|---|---|---|
 | `spec-agent` | Read, Write, Edit, Glob, Grep, Bash(시각, 목록 확인만) | 요청 원문, 기존 SPEC | `SPEC.md`, 질문 목록, 승인 요청 | 안 함 |
-| `task-agent` | Read, Write, Edit, Glob, Grep, Bash(시각, 목록 확인만) | 승인된 SPEC, 대상 기능 ID | Task 파일들, `INDEX.md` | 안 함 |
-| `impl-agent` | Read, Write, Edit, Glob, Grep, Bash | Task 경로, 필요한 Spec 섹션, 테스트 명령 | 테스트와 구현, Red/Green 로그 요약 | 함 (Task 범위 안에서만) |
-| `qa-agent` | Read, Write, Edit, Glob, Grep, Bash | Task 번호, 바뀐 파일 | 헤더/푸터 주석, QA 보고서, 판정 | 주석만 |
+| `task-agent` | Read, Write, Edit, Glob, Grep, Bash(시각, 목록 확인만) | 승인된 SPEC, 대상 기능 ID | Task 파일들(기능 범위, 연결 범위 발췌 포함), `INDEX.md` | 안 함 |
+| `impl-agent` | Read, Write, Edit, Glob, Grep, Bash | Task 파일 하나, 검증 명령 (Spec은 열지 않음) | 테스트와 구현, Red/Green 로그 요약 | 함 (Task 범위 안에서만) |
+| `qa-agent` | Read, Write, Edit, Glob, Grep, Bash | Task 번호, 바뀐 파일 (기준은 Task 파일, Spec은 열지 않음) | 헤더/푸터 주석, QA 보고서, 판정 | 주석만 |
 | `verify-agent` | Read, Glob, Grep, Bash | 검증 명령 목록 | 도구별 결과, 실패 분류, 확인 시나리오 | 안 함 |
+
+Impl과 QA가 무엇을 읽고 무엇을 안 읽는지는 [작업 흐름의 컨텍스트를 아끼는 방식](workflow.md#컨텍스트를-아끼는-방식)에 정리돼 있습니다.
 
 모든 작업 에이전트는 시작, 완료, 중단 시점에 `docs/status/AGENT_LOG.md`에 한 줄씩 남깁니다.
 

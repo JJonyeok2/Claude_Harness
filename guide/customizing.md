@@ -57,7 +57,8 @@ git rm --cached -q secret-test.js && rm secret-test.js
 |---|---|---|
 | 동시 실행 Task 수 | `.claude/commands/run.md` | 3 |
 | FIX 자동 반복 횟수 | `.claude/commands/run.md`, `.claude/commands/impl.md` | 2 |
-| Task 크기 기준 | `.claude/agents/task-agent.md` | 파일 5개 이하, 테스트 3~8개 |
+| Task 크기 기준 | `.claude/agents/task-agent.md` | 파일 5개 이하, 테스트 3~8개, 발췌 60줄 안팎 |
+| 추가 발췌 허용 횟수 | `.claude/commands/run.md` 3장 | 3회 (넘으면 Task 재분해) |
 | 멈춤 의심 기준 | `.claude/agents/status-agent.md` | 30분 |
 | 피어 리뷰 답변 대기 한도 | `.claude/commands/peer-review.md` | 10분 |
 

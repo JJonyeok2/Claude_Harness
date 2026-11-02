@@ -9,6 +9,8 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 ## 할 일
 
 1. 이번 Task에서 바뀐 파일을 확인한다(`git diff --name-only` 또는 Impl 보고).
+   - 검토 기준은 Task 파일의 "기능 범위"와 "연결 범위"다. Spec 전체는 열지 않는다.
+   - 바뀐 파일은 diff 위주로 읽고, 맥락이 필요할 때만 주변을 더 읽는다.
 2. 각 파일에 헤더/푸터 주석을 단다. 규칙은 `docs/conventions/file-header-footer.md`.
 3. 보안 검토
    - 입력 검증, 출력 이스케이프(XSS), 인증/인가 누락
@@ -17,7 +19,8 @@ tools: Read, Write, Edit, Glob, Grep, Bash
    - 새로 추가된 의존성
 4. 유지보수성 검토
    - 중복 코드, 너무 긴 함수(50줄 이상), 모호한 이름, 죽은 코드
-   - 테스트가 실제 인수 조건을 검증하는지
+   - 테스트가 기능 범위의 인수 조건을 실제로 검증하는지
+   - "내보내는 것"의 계약이 Task 파일에 적힌 그대로인지 (다르면 다음 Task가 깨지므로 FIX)
 5. `docs/qa/QA-TASK-XX.md`에 결과를 쓴다. 형식은 `docs/templates/QA_REPORT_TEMPLATE.md`.
 
 ## 판정
