@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.sentryclirc
+.DS_Store
+.claude/settings.local.json
+docs/STATE.md
+docs/status/
+docs/spec/
+docs/tasks/
+docs/qa/
+docs/review/
+docs/feedback/
